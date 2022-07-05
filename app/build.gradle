@@ -50,6 +50,8 @@ dependencies {
     implementation deps.material
     implementation deps.constraint_layout
     testImplementation deps.junit
+    testImplementation deps.truth
+
     androidTestImplementation deps.junit_android
     androidTestImplementation deps.espresso
 

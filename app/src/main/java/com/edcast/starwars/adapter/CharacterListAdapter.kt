@@ -13,7 +13,9 @@ import com.edcast.domain.data.characters.Character
 import com.edcast.starwars.databinding.ListCharacterItemBinding
 import timber.log.Timber
 
-
+/*
+Paging implementation for recyclerview
+*/
 class CharacterListAdapter(
     private var context: Context,
     private var callback:(Character)->Unit
@@ -33,7 +35,7 @@ class CharacterListAdapter(
         }
 
     }
-
+    //View holder Class for item list
     inner class CharacterViewHolder(private var listCharacterItemBinding: ListCharacterItemBinding) :
         RecyclerView.ViewHolder(listCharacterItemBinding.root) {
         fun bind(character: Character) {
@@ -45,7 +47,7 @@ class CharacterListAdapter(
         }
     }
 }
-
+// Diff util class to check changed or new items
 class CharacterDiffUtils : DiffUtil.ItemCallback<Character>() {
     override fun areItemsTheSame(
         oldItem: Character,

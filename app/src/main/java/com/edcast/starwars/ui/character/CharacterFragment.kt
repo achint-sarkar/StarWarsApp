@@ -46,26 +46,31 @@ class CharacterFragment : Fragment() {
         return binding.root
     }
 
+    /*
+    Init view for the fragment
+    Intialize the
+    * */
     private fun initView() {
         if (!NetworkChecker.isInternetAvailable(requireContext())) {
             showSnackBar(getString(R.string.no_internet))
         }
-        characterListAdapter = CharacterListAdapter(requireContext(),::showDetailFragment)
-        val layoutManager =
-            LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-        binding.recyclerView.layoutManager = layoutManager
+        characterListAdapter = CharacterListAdapter(requireContext(), ::showDetailFragment)
+        binding.recyclerView.apply {
+            this.layoutManager =
+                LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+            this.adapter = characterListAdapter
 
-        binding.recyclerView.adapter = characterListAdapter
-
-        characterListAdapter.addLoadStateListener {loadStates ->
-            when(loadStates.refresh){
-                is LoadState.Error->{
+        }
+        //check the loading state
+        characterListAdapter.addLoadStateListener { loadStates ->
+            when (loadStates.refresh) {
+                is LoadState.Error -> {
                     showSnackBar(getString(R.string.something_went_wrong))
                 }
-                is LoadState.Loading->{
+                is LoadState.Loading -> {
                     startAnimation()
                 }
-                is LoadState.NotLoading->{
+                is LoadState.NotLoading -> {
                     endAnimation()
                 }
             }
@@ -84,19 +89,24 @@ class CharacterFragment : Fragment() {
         _binding = null
     }
 
+    //play the loading animation
     private fun startAnimation() {
         binding.loading.visibility = View.VISIBLE
         binding.loading.playAnimation()
         binding.loading.repeatCount = ValueAnimator.INFINITE
     }
 
+    //play the stop animation
     private fun endAnimation() {
-        binding.loading.visibility = View.GONE
-        if (binding.loading.isAnimating) {
-            binding.loading.pauseAnimation()
+        if (_binding != null) {
+            binding.loading.visibility = View.GONE
+            if (binding.loading.isAnimating) {
+                binding.loading.pauseAnimation()
+            }
         }
     }
 
+    //receive the data from view model
     private fun initCollector() {
         lifecycleScope.launchWhenCreated {
             characterViewModel.fetchCharacterList().collectLatest {
@@ -105,21 +115,22 @@ class CharacterFragment : Fragment() {
         }
     }
 
-
+    //show error snack bar with action button
     private fun showSnackBar(errorMessage: String?) {
         Timber.e("Get Called")
         errorMessage?.let {
-            Snackbar.make(binding.root, it, Snackbar.LENGTH_INDEFINITE).setAction(R.string.retry){
+            Snackbar.make(binding.root, it, Snackbar.LENGTH_INDEFINITE).setAction(R.string.retry) {
                 characterListAdapter.retry()
             }.show()
         }
     }
 
+    //callback function for the opening the detail Fragment
     private fun showDetailFragment(character: Character) {
         val bundle: Bundle = bundleOf(
             "character" to character
         )
-        findNavController().navigate(R.id.action_navigation_character_to_navigation_details,bundle)
+        findNavController().navigate(R.id.action_navigation_character_to_navigation_details, bundle)
     }
 
 }

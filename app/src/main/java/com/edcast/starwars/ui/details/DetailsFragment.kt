@@ -10,7 +10,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.edcast.domain.data.characters.Character
 import com.edcast.starwars.databinding.FragmentDetailsBinding
-import java.text.SimpleDateFormat
+import com.edcast.starwars.utils.DateFormatterUtils
+import com.edcast.starwars.utils.SIUnitConverter
+import timber.log.Timber
 
 class DetailsFragment : Fragment() {
 
@@ -35,16 +37,18 @@ class DetailsFragment : Fragment() {
 
         character?.let {
             binding.valueName.text = it.name
-            binding.valueHeight.text = it.height
-            binding.valueMass.text = it.mass
+            binding.valueHeight.text = SIUnitConverter.convertCentimeterToMeter(it.height)
+            binding.valueMass.text = SIUnitConverter.massToKgs(it.mass)
             binding.valueDate.text = it.created?.let { dateString ->
-                val dateFormatter = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
-                val date = dateFormatter.parse(dateString)
-                val newFormat = SimpleDateFormat("dd-MMM-yyyy HH:mm:ss")
-                newFormat.format(date) ?: dateString
-            } ?: it.created
+                DateFormatterUtils.changeFormat(
+                    "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+                    "dd-MMM-yyyy HH:mm:ss",
+                    dateString
+                )
+            } ?: "NA"
 
         }
+
         binding.toolbar.linearBack.setOnClickListener {
             findNavController().popBackStack()
         }

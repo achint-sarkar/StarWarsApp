@@ -20,6 +20,7 @@ import javax.inject.Singleton
     ]
 )
 interface AppComponent {
+    //fetch character sub component
     fun getCharacterListSubcomponent(): CharacterListSubcomponent.Factory
 
 }

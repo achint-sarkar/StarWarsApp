@@ -8,7 +8,7 @@
     <string name="name">Name</string>
     <string name="height">Height in metres</string>
     <string name="mass">Mass in Kgs</string>
-    <string name="retry">Retry</string>
+    <string name="retry">Try Again</string>
     <string name="date">Date</string>
 
 </resources>
