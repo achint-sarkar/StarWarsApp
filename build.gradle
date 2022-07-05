@@ -1,0 +1,72 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    ext.appData = [
+            "applicationId": 'com.edcast.starwars',
+            "versionCode"  : 1,
+            "versionName"  : "1.0"
+    ]
+    ext.versions = [
+            "applicationId": 'com.technoecorp.gorilladealer',
+            "minSdk"       : 23,
+            "compileSdk"   : 33,
+            "targetSdk"    : 33,
+            "jvm"          : '1.8',
+            "androidx_core_version"       : "1.8.0",
+            "app_compat_version"          : "1.4.2",
+            "material_version"            : "1.6.1",
+            "constraint_layout_version"   : "2.1.4",
+            "junit_version"               : "4.13.2",
+            "junit_android_version"       : "1.1.3",
+            "esspreso_version"            : "3.4.0",
+            "view_model_version"          : "2.5.0",
+            "coroutine_version"           : "1.6.0",
+            "retrofit_version"            : "2.9.0",
+            "retrofit_logger_version"     : "4.9.3",
+            "dagger_version"              : "2.41",
+            "navigation_version"          : "2.5.0",
+            "coroutine_core_version"      : "1.6.1",
+            "glide_version"               : "4.12.0",
+            "timber_version"              : "5.0.1"
+    ]
+    ext.deps = [
+            "androidx_core"       : "androidx.core:core-ktx:${versions.androidx_core_version}",
+            "app_compat"          : "androidx.appcompat:appcompat:${versions.app_compat_version}",
+            "material"            : "com.google.android.material:material:${versions.material_version}",
+            "constraint_layout"   : "androidx.constraintlayout:constraintlayout:${versions.constraint_layout_version}",
+            "junit"               : "junit:junit:${versions.junit_version}",
+            "junit_android"       : "androidx.test.ext:junit:${versions.junit_android_version}",
+            "espresso"            : "androidx.test.espresso:espresso-core:${versions.esspreso_version}",
+
+            "view_model"          : "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.view_model_version}",
+            "live_data"           : "androidx.lifecycle:lifecycle-livedata-ktx:${versions.view_model_version}",
+            "coroutines"          : "androidx.lifecycle:lifecycle-livedata-ktx:${versions.coroutine_version}",
+            "retrofit"            : "com.squareup.retrofit2:retrofit:${versions.retrofit_version}",
+            "gson_convertor"      : "com.squareup.retrofit2:converter-gson:${versions.retrofit_version}",
+            "retrofit_logger"     : "com.squareup.okhttp3:logging-interceptor:${versions.retrofit_logger_version}",
+            "dagger"              : "com.google.dagger:dagger:${versions.dagger_version}",
+            "dagger_compiler"     : "com.google.dagger:dagger-compiler:${versions.dagger_version}",
+            "navigation_fragment" : "androidx.navigation:navigation-fragment-ktx:${versions.navigation_version}",
+            "navigation_ui"       : "androidx.navigation:navigation-ui-ktx:${versions.navigation_version}",
+            "navigation_safe_args": "androidx.navigation:navigation-safe-args-gradle-plugin:${versions.navigation_version}",
+
+            "glide"                 : "com.github.bumptech.glide:glide:${versions.glide_version}",
+            "glide_compiler"        : "com.github.bumptech.glide:compiler:${versions.glide_version}",
+            "timber"                : "com.jakewharton.timber:timber:${versions.timber_version}",
+            "coroutine_core"        : "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.coroutine_core_version}"
+    ]
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:7.0.4"
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10'
+        classpath(deps.navigation_safe_args)
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

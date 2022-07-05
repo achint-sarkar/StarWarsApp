@@ -1,0 +1,74 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs'
+}
+
+android {
+    compileSdk versions.compileSdk
+
+    defaultConfig {
+        applicationId appData.applicationId
+        minSdk versions.minSdk
+        targetSdk versions.targetSdk
+        versionCode appData.versionCode
+        versionName appData.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = versions.jvm
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+    implementation project(path: ':domain')
+    implementation project(path: ':data')
+
+
+    implementation deps.androidx_core
+    implementation deps.app_compat
+    implementation deps.material
+    implementation deps.constraint_layout
+    testImplementation deps.junit
+    androidTestImplementation deps.junit_android
+    androidTestImplementation deps.espresso
+
+    // ViewModel
+    implementation deps.view_model
+    // LiveData
+    implementation deps.live_data
+    //coroutines
+    implementation deps.coroutines
+    //retrofit
+    implementation deps.retrofit
+    implementation deps.gson_convertor
+    implementation deps.retrofit_logger
+    //dagger 2
+    implementation deps.dagger
+    kapt deps.dagger_compiler
+    //Navigation
+    implementation deps.navigation_fragment
+    implementation deps.navigation_ui
+    //glide
+    implementation deps.glide
+    kapt deps.glide_compiler
+    //Timber
+    implementation deps.timber
+
+}
