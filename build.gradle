@@ -5,28 +5,38 @@ buildscript {
             "versionCode"  : 1,
             "versionName"  : "1.0"
     ]
+
+    ext.debugKeys = [
+            "base_url"   : "${baseDebugUrl}",
+    ]
+
+    ext.releaseKeys = [
+            "base_url"   : "${baseDebugUrl}",
+    ]
     ext.versions = [
-            "applicationId": 'com.technoecorp.gorilladealer',
-            "minSdk"       : 23,
-            "compileSdk"   : 33,
-            "targetSdk"    : 33,
-            "jvm"          : '1.8',
-            "androidx_core_version"       : "1.8.0",
-            "app_compat_version"          : "1.4.2",
-            "material_version"            : "1.6.1",
-            "constraint_layout_version"   : "2.1.4",
-            "junit_version"               : "4.13.2",
-            "junit_android_version"       : "1.1.3",
-            "esspreso_version"            : "3.4.0",
-            "view_model_version"          : "2.5.0",
-            "coroutine_version"           : "1.6.0",
-            "retrofit_version"            : "2.9.0",
-            "retrofit_logger_version"     : "4.9.3",
-            "dagger_version"              : "2.41",
-            "navigation_version"          : "2.5.0",
-            "coroutine_core_version"      : "1.6.1",
-            "glide_version"               : "4.12.0",
-            "timber_version"              : "5.0.1"
+            "applicationId"            : 'com.technoecorp.gorilladealer',
+            "minSdk"                   : 23,
+            "compileSdk"               : 33,
+            "targetSdk"                : 33,
+            "jvm"                      : '1.8',
+            "androidx_core_version"    : "1.8.0",
+            "app_compat_version"       : "1.4.2",
+            "material_version"         : "1.6.1",
+            "constraint_layout_version": "2.1.4",
+            "junit_version"            : "4.13.2",
+            "junit_android_version"    : "1.1.3",
+            "esspreso_version"         : "3.4.0",
+            "view_model_version"       : "2.5.0",
+            "coroutine_version"        : "1.6.0",
+            "retrofit_version"         : "2.9.0",
+            "retrofit_logger_version"  : "4.9.3",
+            "dagger_version"           : "2.41",
+            "navigation_version"       : "2.5.0",
+            "coroutine_core_version"   : "1.6.1",
+            "glide_version"            : "4.12.0",
+            "timber_version"           : "5.0.1",
+            "lottie_version"           : "5.2.0",
+            "paging_version"           : "3.1.1"
     ]
     ext.deps = [
             "androidx_core"       : "androidx.core:core-ktx:${versions.androidx_core_version}",
@@ -49,10 +59,12 @@ buildscript {
             "navigation_ui"       : "androidx.navigation:navigation-ui-ktx:${versions.navigation_version}",
             "navigation_safe_args": "androidx.navigation:navigation-safe-args-gradle-plugin:${versions.navigation_version}",
 
-            "glide"                 : "com.github.bumptech.glide:glide:${versions.glide_version}",
-            "glide_compiler"        : "com.github.bumptech.glide:compiler:${versions.glide_version}",
-            "timber"                : "com.jakewharton.timber:timber:${versions.timber_version}",
-            "coroutine_core"        : "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.coroutine_core_version}"
+            "glide"               : "com.github.bumptech.glide:glide:${versions.glide_version}",
+            "glide_compiler"      : "com.github.bumptech.glide:compiler:${versions.glide_version}",
+            "timber"              : "com.jakewharton.timber:timber:${versions.timber_version}",
+            "coroutine_core"      : "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.coroutine_core_version}",
+            "lottie"              : "com.airbnb.android:lottie:${versions.lottie_version}",
+            "paging"              : "androidx.paging:paging-runtime:${versions.paging_version}"
     ]
     repositories {
         google()

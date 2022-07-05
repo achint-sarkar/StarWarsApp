@@ -1,11 +1,15 @@
 package com.edcast.domain.repository
 
-import com.edcast.domain.characters.CharactersResponse
+import androidx.paging.PagingData
+import com.edcast.domain.data.characters.CharactersResponse
 import com.edcast.data.wrapper.ResultWrapper
+import com.edcast.domain.data.characters.Character
+import kotlinx.coroutines.flow.Flow
+
 /*
     Repository Wrapper for Character Repository
 */
 interface ICharacterRepository {
     //get Characters using the repository
-    suspend fun getCharacters(page:Int): ResultWrapper<CharactersResponse>
+     fun getCharacters(): Flow<PagingData<Character>>
 }

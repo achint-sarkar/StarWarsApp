@@ -1,8 +1,11 @@
 package com.edcast.data.repository.datasource
 
-import com.edcast.domain.characters.CharactersResponse
+import androidx.paging.PagingData
+import com.edcast.domain.data.characters.Character
+import com.edcast.domain.data.characters.CharactersResponse
+import kotlinx.coroutines.flow.Flow
 import retrofit2.Response
 //wrapping up the remote data source
 interface IRemoteDatasource {
-    suspend fun getCharacterList(page:Int): Response<CharactersResponse>
+     fun getCharacterList(): Flow<PagingData<Character>>
 }

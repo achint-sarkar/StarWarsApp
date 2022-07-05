@@ -45,4 +45,6 @@ dependencies {
 
     implementation deps.dagger
     kapt deps.dagger_compiler
+    //paging
+    implementation deps.paging
 }

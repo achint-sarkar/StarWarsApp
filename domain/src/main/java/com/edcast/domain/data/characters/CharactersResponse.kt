@@ -1,8 +1,8 @@
-package com.edcast.domain.characters
+package com.edcast.domain.data.characters
 
 
-import com.edcast.domain.characters.Character
 import com.google.gson.annotations.SerializedName
+
 //Response of the character list
 data class CharactersResponse(
     @SerializedName("count")

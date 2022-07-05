@@ -1,6 +1,6 @@
 package com.edcast.data.api
 
-import com.edcast.domain.characters.CharactersResponse
+import com.edcast.domain.data.characters.CharactersResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

@@ -12,6 +12,7 @@
         tools:layout="@layout/fragment_character" >
         <action
             android:id="@+id/action_navigation_character_to_navigation_details"
+            app:launchSingleTop="true"
             app:destination="@id/navigation_details" />
     </fragment>
 

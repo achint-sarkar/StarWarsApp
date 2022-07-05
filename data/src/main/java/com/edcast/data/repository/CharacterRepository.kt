@@ -1,16 +1,16 @@
 package com.edcast.data.repository
 
-import com.edcast.domain.characters.CharactersResponse
+import androidx.paging.PagingData
 import com.edcast.data.repository.datasource.IRemoteDatasource
-import com.edcast.data.wrapper.ResultWrapper
-import com.edcast.data.wrapper.responseToResource
+import com.edcast.domain.data.characters.Character
 import com.edcast.domain.repository.ICharacterRepository
+import kotlinx.coroutines.flow.Flow
 
 class CharacterRepository(private var remoteDatasource: IRemoteDatasource) : ICharacterRepository {
 
     //fetch character from remote datasource and wrapping them inside a wrapper class
-    override suspend fun getCharacters(page: Int): ResultWrapper<CharactersResponse> {
+    override fun getCharacters(): Flow<PagingData<Character>> {
 
-        return remoteDatasource.getCharacterList(page).responseToResource()
+        return remoteDatasource.getCharacterList()
     }
 }

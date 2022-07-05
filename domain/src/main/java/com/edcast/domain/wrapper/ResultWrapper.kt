@@ -4,10 +4,10 @@ package com.edcast.data.wrapper
 sealed class ResultWrapper<T>(
     val data: T? = null,
     val message: String? = null,
-    val isLoading: Boolean? = null
+    val isLoading: Boolean = false
 ) {
     class Success<T>(data: T) : ResultWrapper<T>(data)
-    class Loading<T>(isLoading:Boolean?=null,data: T? = null) : ResultWrapper<T>(data,null,isLoading)
+    class Loading<T>(isLoading:Boolean=false,data: T? = null) : ResultWrapper<T>(data,null,isLoading)
     class Error<T>(message: String?, data: T? = null) : ResultWrapper<T>(data, message)
 }
 

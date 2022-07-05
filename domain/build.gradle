@@ -40,4 +40,6 @@ dependencies {
     implementation deps.dagger
     kapt deps.dagger_compiler
     implementation deps.gson_convertor
+    //paging
+    implementation deps.paging
 }

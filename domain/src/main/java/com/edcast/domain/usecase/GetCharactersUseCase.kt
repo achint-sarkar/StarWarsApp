@@ -1,13 +1,16 @@
 package com.edcast.domain.usecase
 
-import com.edcast.domain.characters.CharactersResponse
+import androidx.paging.PagingData
+import com.edcast.domain.data.characters.CharactersResponse
 import com.edcast.data.wrapper.ResultWrapper
+import com.edcast.domain.data.characters.Character
 import com.edcast.domain.repository.ICharacterRepository
+import kotlinx.coroutines.flow.Flow
 
 /*
     Get Character Use Case using the character Repository
 */
 class GetCharactersUseCase(private var characterRepository: ICharacterRepository) {
     // fetch the data from character repository
-    suspend fun execute(page:Int): ResultWrapper<CharactersResponse> = characterRepository.getCharacters(page)
+     fun execute(): Flow<PagingData<Character>> = characterRepository.getCharacters()
 }

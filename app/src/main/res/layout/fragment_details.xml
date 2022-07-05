@@ -6,17 +6,99 @@
     android:layout_height="match_parent"
     tools:context=".ui.details.DetailsFragment">
 
-    <TextView
-        android:id="@+id/text_dashboard"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_back_with_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/labelName"
+        style="@style/TextViewLabel"
+        android:layout_width="0dp"
+        android:text="@string/name"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/labelHeight"
+        app:layout_constraintEnd_toStartOf="@+id/valueName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/valueName"
+        style="@style/TextViewValue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/labelHeight"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/labelName"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/labelHeight"
+        style="@style/TextViewLabel"
+        android:text="@string/height"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/labelMass"
+        app:layout_constraintEnd_toStartOf="@+id/valueHeight"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/labelName" />
+
+    <TextView
+        android:id="@+id/valueHeight"
+        style="@style/TextViewValue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/labelMass"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/labelHeight"
+        app:layout_constraintTop_toBottomOf="@+id/labelName" />
+
+
+    <TextView
+        android:id="@+id/labelMass"
+        style="@style/TextViewLabel"
+        android:text="@string/mass"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/labelDate"
+        app:layout_constraintEnd_toStartOf="@+id/valueMass"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/labelHeight" />
+
+    <TextView
+        android:id="@+id/valueMass"
+        style="@style/TextViewValue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/labelDate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/labelMass"
+        app:layout_constraintTop_toBottomOf="@+id/labelHeight" />
+
+
+    <TextView
+        android:id="@+id/labelDate"
+        style="@style/TextViewLabel"
+        android:text="@string/date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/valueDate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/labelMass" />
+
+    <TextView
+        android:id="@+id/valueDate"
+        style="@style/TextViewValue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/labelDate"
+        app:layout_constraintTop_toBottomOf="@+id/labelMass" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

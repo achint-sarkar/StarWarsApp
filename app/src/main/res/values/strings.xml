@@ -1,6 +1,14 @@
 <resources>
     <string name="app_name">StarWars</string>
     <string name="title_character">Characters</string>
+    <string name="back">Back</string>
     <string name="title_details">Characters Details</string>
+    <string name="no_internet">No Internet Connection</string>
+    <string name="something_went_wrong">Something went wrong..</string>
+    <string name="name">Name</string>
+    <string name="height">Height in metres</string>
+    <string name="mass">Mass in Kgs</string>
+    <string name="retry">Retry</string>
+    <string name="date">Date</string>
 
 </resources>

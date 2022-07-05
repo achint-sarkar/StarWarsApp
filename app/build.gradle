@@ -22,6 +22,10 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "baseUrl", "\"${debugKeys.base_url}\""
+        }
+        debug {
+            buildConfigField "String", "baseUrl", "\"${releaseKeys.base_url}\""
         }
     }
     compileOptions {
@@ -70,5 +74,17 @@ dependencies {
     kapt deps.glide_compiler
     //Timber
     implementation deps.timber
+    //lottie animation
+    implementation deps.lottie
+    //paging
+    implementation deps.paging
 
+}
+
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+    kotlinOptions {
+        freeCompilerArgs += [
+                "-Xjvm-default=all",
+        ]
+    }
 }
