@@ -32,7 +32,6 @@ android {
 
 dependencies {
 
-    implementation project(path: ':data')
     implementation deps.androidx_core
     testImplementation deps.junit
     androidTestImplementation deps.junit_android
@@ -40,4 +39,5 @@ dependencies {
     //Dagger
     implementation deps.dagger
     kapt deps.dagger_compiler
+    implementation deps.gson_convertor
 }

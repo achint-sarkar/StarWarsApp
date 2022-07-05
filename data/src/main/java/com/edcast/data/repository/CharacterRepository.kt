@@ -1,6 +1,6 @@
 package com.edcast.data.repository
 
-import com.edcast.data.data.characters.CharactersResponse
+import com.edcast.domain.characters.CharactersResponse
 import com.edcast.data.repository.datasource.IRemoteDatasource
 import com.edcast.data.wrapper.ResultWrapper
 import com.edcast.data.wrapper.responseToResource

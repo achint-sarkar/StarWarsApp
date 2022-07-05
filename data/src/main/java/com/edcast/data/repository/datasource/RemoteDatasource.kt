@@ -1,7 +1,7 @@
 package com.edcast.data.repository.datasource
 
 import com.edcast.data.api.StarWarsService
-import com.edcast.data.data.characters.CharactersResponse
+import com.edcast.domain.characters.CharactersResponse
 import retrofit2.Response
 //implementation for remote data source
 class RemoteDatasource(private var starWarsService: StarWarsService):IRemoteDatasource {

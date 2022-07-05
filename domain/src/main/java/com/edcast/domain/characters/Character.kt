@@ -1,4 +1,4 @@
-package com.edcast.data.data.characters
+package com.edcast.domain.characters
 
 
 import com.google.gson.annotations.SerializedName

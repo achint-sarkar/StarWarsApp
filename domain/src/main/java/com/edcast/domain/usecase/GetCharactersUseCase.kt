@@ -1,6 +1,6 @@
 package com.edcast.domain.usecase
 
-import com.edcast.data.data.characters.CharactersResponse
+import com.edcast.domain.characters.CharactersResponse
 import com.edcast.data.wrapper.ResultWrapper
 import com.edcast.domain.repository.ICharacterRepository
 
