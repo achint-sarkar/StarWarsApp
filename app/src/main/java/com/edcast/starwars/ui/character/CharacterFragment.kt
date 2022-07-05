@@ -2,13 +2,10 @@ package com.edcast.starwars.ui.character
 
 
 import android.animation.ValueAnimator
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.AnimationUtils
-import android.view.animation.LayoutAnimationController
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -16,7 +13,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.edcast.domain.data.characters.Character
 import com.edcast.starwars.R
 import com.edcast.starwars.StarWarApplication
@@ -92,7 +88,6 @@ class CharacterFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
 
 
     //play the loading animation
