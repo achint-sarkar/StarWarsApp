@@ -12,7 +12,9 @@ object DateFormatterUtils {
         try {
             val date = dateFormatter.parse(dateString)
             val newFormat = SimpleDateFormat(resultFormat)
-            return newFormat.format(date) ?: dateString
+            return date?.let {
+                 newFormat.format(date) ?: dateString
+            }?:"Unparseable Date"
         }catch (e: ParseException){
             return "Unparseable Date"
         }catch (e:Exception){
