@@ -1,10 +1,14 @@
 package com.edcast.starwars.ui.character
 
+
 import android.animation.ValueAnimator
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
+import android.view.animation.LayoutAnimationController
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -12,6 +16,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.edcast.domain.data.characters.Character
 import com.edcast.starwars.R
 import com.edcast.starwars.StarWarApplication
@@ -20,7 +25,6 @@ import com.edcast.starwars.databinding.FragmentCharacterBinding
 import com.edcast.starwars.utils.NetworkChecker
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.flow.collectLatest
-import timber.log.Timber
 import javax.inject.Inject
 
 
@@ -89,6 +93,8 @@ class CharacterFragment : Fragment() {
         _binding = null
     }
 
+
+
     //play the loading animation
     private fun startAnimation() {
         binding.loading.visibility = View.VISIBLE
@@ -117,7 +123,6 @@ class CharacterFragment : Fragment() {
 
     //show error snack bar with action button
     private fun showSnackBar(errorMessage: String?) {
-        Timber.e("Get Called")
         errorMessage?.let {
             Snackbar.make(binding.root, it, Snackbar.LENGTH_INDEFINITE).setAction(R.string.retry) {
                 characterListAdapter.retry()

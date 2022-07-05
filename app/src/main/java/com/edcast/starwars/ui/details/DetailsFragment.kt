@@ -12,7 +12,6 @@ import com.edcast.domain.data.characters.Character
 import com.edcast.starwars.databinding.FragmentDetailsBinding
 import com.edcast.starwars.utils.DateFormatterUtils
 import com.edcast.starwars.utils.SIUnitConverter
-import timber.log.Timber
 
 class DetailsFragment : Fragment() {
 
@@ -30,9 +29,9 @@ class DetailsFragment : Fragment() {
         _binding = FragmentDetailsBinding.inflate(inflater, container, false)
         bundle = requireArguments()
         character = if (Build.VERSION.SDK_INT >= 33) {
-            bundle.getParcelable<Character>("character", Character::class.java)
+            bundle.getParcelable("character", Character::class.java)
         } else {
-            bundle.getParcelable<Character>("character")
+            bundle.getParcelable("character")
         }
 
         character?.let {
